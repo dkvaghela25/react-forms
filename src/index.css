@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+* {
+    font-family: "urbanist";
+    box-sizing: border-box;
+}
