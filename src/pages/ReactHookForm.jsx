@@ -1,6 +1,6 @@
 const ReactHookForm = () => {
   return (
-    <div className="p-50 text-center text-5xl">
+    <div className="p-50 text-center text-5xl underline">
        Work in progress
     </div>
   );

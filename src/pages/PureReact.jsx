@@ -134,9 +134,9 @@ const PureReact = () => {
             setErrors(prev => { return { ...prev, confirmPassword: "Confirm password should be same as password" } })
         }
 
-        if (Number(age) === NaN) {
+        if (!age) {
             validForm = false;
-            setErrors(prev => { return { ...prev, age: "Age should be number" } })
+            setErrors(prev => { return { ...prev, age: "Age is required field" } })
         }
 
         if (!(emailRegex.test(emailId))) {
@@ -192,24 +192,24 @@ const PureReact = () => {
             <div className='text-4xl font-extrabold mt-10'>Registration Form</div>
             <form onSubmit={handleSubmit} className='w-[50%] max-md:w-full flex flex-col items-center gap-5 text-gray-400'>
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="text"
                     name='fullName'
                     placeholder='Full Name'
                     value={formData.fullName}
                     onChange={handleChange}
                 />
-                {errors.fullName && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.fullName}</p>}
+                {errors.fullName && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.fullName}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="text"
                     name='userName'
                     placeholder='Username'
                     value={formData.userName}
                     onChange={handleChange}
                 />
-                {errors.userName && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.userName}</p>}
-                <div className="relative w-[60%] max-md:w-full">
+                {errors.userName && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.userName}</p>}
+                <div className="relative w-[70%] max-md:w-full">
                     <input
                         className="border border-gray-400 p-2 w-full rounded-lg pr-10"
                         type={showPassword ? "text" : "password"}
@@ -226,8 +226,8 @@ const PureReact = () => {
                         {showConfirmPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                     </span>
                 </div>
-                {errors.password && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.password}</p>}
-                <div className="relative w-[60%] max-md:w-full">
+                {errors.password && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.password}</p>}
+                <div className="relative w-[70%] max-md:w-full">
                     <input
                         className="border border-gray-400 p-2 w-full rounded-lg pr-10"
                         type={showConfirmPassword ? "text" : "password"}
@@ -245,44 +245,44 @@ const PureReact = () => {
                     </span>
                 </div>
 
-                {errors.confirmPassword && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.confirmPassword}</p>}
+                {errors.confirmPassword && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.confirmPassword}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="number"
                     name='age'
                     placeholder='Age'
                     value={formData.age}
                     onChange={handleChange}
                 />
-                {errors.age && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.age}</p>}
+                {errors.age && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.age}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="email"
                     name='emailId'
                     placeholder='Email Id'
                     value={formData.emailId}
                     onChange={handleChange}
                 />
-                {errors.emailId && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.emailId}</p>}
+                {errors.emailId && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.emailId}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="text"
                     name='phoneNo'
                     placeholder='Phone No'
                     value={formData.phoneNo}
                     onChange={handleChange}
                 />
-                {errors.phoneNo && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.phoneNo}</p>}
+                {errors.phoneNo && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.phoneNo}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full scheme-dark'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full scheme-dark'
                     type="date"
                     name='dob'
                     placeholder='Date Of Birth'
                     value={formData.dob}
                     onChange={handleChange}
                 />
-                {errors.dob && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.dob}</p>}
-                <select onChange={handleChange} value={formData.highestQualification} placeholder="" className="bg-black border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full" name="highestQualification" id="">
+                {errors.dob && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.dob}</p>}
+                <select onChange={handleChange} value={formData.highestQualification} placeholder="" className="bg-black border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full" name="highestQualification" id="">
                     <option value="">Highest Qualification</option>
                     <option value="High School">High School</option>
                     <option value="Diploma">Diploma</option>
@@ -290,8 +290,8 @@ const PureReact = () => {
                     <option value="Master’s Degree">Master’s Degree</option>
                     <option value="PhD">PhD</option>
                 </select>
-                {errors.highestQualification && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.highestQualification}</p>}
-                <div className="border flex flex-col gap-3 border-gray-400 p-4 w-[60%] rounded-lg max-md:w-full">
+                {errors.highestQualification && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.highestQualification}</p>}
+                <div className="border flex flex-col gap-3 border-gray-400 p-4 w-[70%] rounded-lg max-md:w-full">
                     <div className="font-extrabold">Select your skills : </div>
                     <div className="grid grid-cols-4">
                         {skills.map((skill, index) => {
@@ -299,8 +299,8 @@ const PureReact = () => {
                         })}
                     </div>
                 </div>
-                {errors.skills && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.skills}</p>}
-                <div className="border border-gray-400 p-4 w-[60%] rounded-lg flex flex-col gap-3 max-md:w-full">
+                {errors.skills && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.skills}</p>}
+                <div className="border border-gray-400 p-4 w-[70%] rounded-lg flex flex-col gap-3 max-md:w-full">
                     <div className="font-extrabold">Select Account Type : </div>
                     <div className="grid grid-cols-3 rounded-lg overflow-hidden">
                         {types.map((type, index) => {
@@ -308,16 +308,16 @@ const PureReact = () => {
                         })}
                     </div>
                 </div>
-                {errors.accountType && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.accountType}</p>}
+                {errors.accountType && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.accountType}</p>}
                 <input
-                    className='border border-gray-400 p-2 w-[60%] rounded-lg max-md:w-full'
+                    className='border border-gray-400 p-2 w-[70%] rounded-lg max-md:w-full'
                     type="url"
                     name='githubUrl'
                     value={formData.githubUrl}
                     placeholder='Github URL'
                     onChange={handleChange}
                 />
-                {errors.githubUrl && <p className="text-red-500 -mt-4.5 text-[16px] w-[60%]">* {errors.githubUrl}</p>}
+                {errors.githubUrl && <p className="text-red-500 -mt-4.5 text-[16px] w-[70%]">* {errors.githubUrl}</p>}
                 <input
                     type="submit"
                     className='bg-black p-[5px_30px] text-white cursor-pointer border border-b-gray-400 rounded-2xl w-fit'
