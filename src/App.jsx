@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Contact, { sendData } from './pages/Contact';
 import AppLayout from './components/layout/AppLayout';
 import PureReact from './pages/PureReact';
 import Formik from './pages/Formik';
 import ReactHookForm from './pages/ReactHookForm';
+import { sendData } from './utils/sendData';
 
 const App = () => {
 

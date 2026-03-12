@@ -2,6 +2,7 @@ import { useState } from "react";
 import Checkbox from "../components/ui/Checkbox";
 import RadioButton from "../components/ui/RadioButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { skills, types } from "../constants";
 
 const PureReact = () => {
 
@@ -37,10 +38,6 @@ const PureReact = () => {
 
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
-
-    const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express.js", "MongoDB", "MySQL", "Git", "Docker", "CI/CD", "Redis"]
-    const types = ["Student", "Professional", "Business"]
 
     const reset = (state) => {
         if (state === "formData") {
@@ -108,7 +105,7 @@ const PureReact = () => {
         const { fullName, userName, password,
             confirmPassword, age, emailId,
             phoneNo, dob, highestQualification,
-            skills, accountType, githubUrl } = formData;
+            skills, accountType } = formData;
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?=.{8,}).*$/
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         const phoneRegex = /^(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/
@@ -129,7 +126,6 @@ const PureReact = () => {
         }
 
         if (password !== confirmPassword) {
-            console.log(password, confirmPassword);
             validForm = false;
             setErrors(prev => { return { ...prev, confirmPassword: "Confirm password should be same as password" } })
         }
@@ -175,12 +171,9 @@ const PureReact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("handle");
         let isValid = validateForm();
-        console.log(isValid);
         if (isValid) {
             alert(JSON.stringify(formData))
-            console.log(formData);
             reset("errors")
             reset("formData")
         }

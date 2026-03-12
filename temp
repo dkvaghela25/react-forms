@@ -1,0 +1,67 @@
+  const validateForm = () => {
+
+    let validForm = true;
+
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?=.{8,}).*$/
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const phoneRegex = /^(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/
+
+    if (fullName.length <= 12) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, fullName: "Full Name length must be grater then 12" } })
+    }
+
+    if (userName.length <= 12) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, userName: "Username length must be grater then 12" } })
+    }
+
+    if (!(passwordRegex.test(password))) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, password: "Password must be at least 8 characters long and include one uppercase letter, one number, and one special character." } })
+    }
+
+    if (password !== confirmPassword) {
+      console.log(password, confirmPassword);
+      validForm = false;
+      setErrors(prev => { return { ...prev, confirmPassword: "Confirm password should be same as password" } })
+    }
+
+    if (!age) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, age: "Age is required field" } })
+    }
+
+    if (!(emailRegex.test(emailId))) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, emailId: "Invalid Email ID" } })
+    }
+
+    if (!(phoneRegex.test(phoneNo))) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, phoneNo: "Invalid Phone No." } })
+    }
+
+    if (!highestQualification) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, highestQualification: "Please select your highest qualification" } })
+    }
+
+    if (!dob) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, dob: "Please select your date of birth" } })
+    }
+
+    if (!accountType) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, accountType: "Please select your Account Type" } })
+    }
+
+    if (skills.length <= 3) {
+      validForm = false;
+      setErrors(prev => { return { ...prev, skills: "There should be al least 3 skills" } })
+    }
+
+    return validForm;
+
+  }
